@@ -1,0 +1,72 @@
+class DanhSachXe
+{
+private:
+    XeOTo *a;
+    int n;
+
+public:
+    // Ham tao
+    DanhSachXe()
+    {
+        n = 0;
+        a = NULL;
+    }
+
+    // Ham tao co tham so
+    DanhSachXe(int n)
+    {
+        this->n = n;
+        a = new XeOTo[n];
+    }
+
+    // Ham tao sao chep
+    DanhSachXe(const DanhSachXe &d)
+    {
+        n = d.n;
+
+        a = new XeOTo[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            a[i] = d.a[i];
+        }
+    }
+
+    // Ham huy
+    ~DanhSachXe()
+    {
+        delete[] a;
+    }
+
+    // Ham nhap
+    void nhap()
+    {
+        cout << "Nhap so luong xe: ";
+        cin >> n;
+
+        a = new XeOTo[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            cout << "\nNhap xe thu " << i + 1 << ":\n";
+            a[i].nhap();
+        }
+    }
+
+    // Ham xuat
+    void xuat()
+    {
+        cout << "\nBien so\t\tHang xe\t\tMau xe\t\tGia xe\n";
+
+        for (int i = 0; i < n; i++)
+        {
+            a[i].xuat();
+        }
+    }
+
+    // Ham ban
+    friend void sapXep(DanhSachXe &d);
+    friend void timKiem(DanhSachXe &d);
+    friend void themXe(DanhSachXe &d);
+    friend void xoaXe(DanhSachXe &d);
+};

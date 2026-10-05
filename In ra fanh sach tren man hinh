@@ -1,0 +1,17 @@
+void XeOTo::xuat()
+{
+cout << bienSo << "\t"
+<< hangXe << "\t"
+<< mauXe << "\t"
+<< giaXe << endl;
+}
+
+void DanhSachXe::xuat()
+{
+cout << "\nBien so\t\tHang xe\t\tMau xe\t\tGia xe\n";
+
+for (int i = 0; i < n; i++)
+{
+    a[i].xuat();
+}
+}
